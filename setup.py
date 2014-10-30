@@ -6,7 +6,7 @@ setup(
     author = "Wilberto Morales",
     author_email = "wilbertomorales777@gmail.com",
     description = ("Process to keep an eye on website health."),
-    license = "MIT",
+    license = "",
     url = "https://github.com/wilbertom/ayu",
     packages=['ayu'],
     classifiers=[
