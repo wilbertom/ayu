@@ -128,4 +128,15 @@ class EmailHandler(DeltaHandler):
         return self
 
 
+class DefaultEmailHandler(EmailHandler):
+    EMAIL_SUBJECT = '{} is down'
 
+    EMAIL_BODY_TEMPLATE = 'URL:    {}\n' \
+                          'Status: {}\n' \
+                          'Reason: {}'
+
+    def format_subject(self, result):
+        return self.EMAIL_SUBJECT.format(result.uri)
+
+    def format_body(self, result):
+        return self.EMAIL_BODY_TEMPLATE.format(result.uri, result.response.status_code, result.response.content)
